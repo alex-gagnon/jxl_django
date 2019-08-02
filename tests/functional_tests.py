@@ -1,9 +1,18 @@
 from selenium import webdriver
+import unittest
 
-browser = webdriver.Firefox()
+class JXLUnitTest(unittest.TestCase):
+    def setUp(self):
+        self.browser = webdriver.Firefox()
 
-browser.get('http://localhost:8000')
+    def tearDown(self):
+        self.browser.quit()
 
-assert 'Django' in browser.title
+    def test_browser_title(self):
+        """Opening the initial page should display the correct browser title."""
+        self.browser.get('http://localhost:8000')
 
-browser.close()
+        assert 'Django' in self.browser.title, f"Browser title was {self.browser.title}"
+
+if __name__ == '__main__':
+    unittest.main(warnings='ignore')
