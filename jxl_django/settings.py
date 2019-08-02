@@ -25,7 +25,9 @@ SECRET_KEY = 'p^6qc!f#ynu8v(*#4k@w!_2%!1c&gjo1t3uohi#@c=(4j=43$&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jxl-test.22bmyfhrdj.us-east-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['localhost',
+                 '127.0.0.1',
+                 'jxl-test.22bmyfhrdj.us-east-1.elasticbeanstalk.com']
 
 
 # Application definition
@@ -76,11 +78,11 @@ WSGI_APPLICATION = 'jxl_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.path.join(BASE_DIR, 'db'),
-	'USER': '',
-	'PASSWORD': '',
-	'HOST': 'localhost',
-	'PORT': 5432
+        'NAME': 'template1' or os.path.join(BASE_DIR, 'db'),
+    	'USER': 'postgres',
+    	'PASSWORD': 'stormed21',
+    	'HOST': 'localhost',
+    	'PORT': '5432'
     }
 }
 
