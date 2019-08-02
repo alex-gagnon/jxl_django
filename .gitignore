@@ -114,3 +114,5 @@ venv.bak/
 !.elasticbeanstalk/*.global.yml
 __pycache__
 *.pyc
+
+.idea
