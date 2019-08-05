@@ -1,5 +1,10 @@
-from selenium import webdriver
+"""Make sure dev server is running before attempting to run functional_tests.py"""
+
 import unittest
+import time
+
+from selenium import webdriver
+
 
 class JXLUnitTest(unittest.TestCase):
     def setUp(self):
@@ -11,8 +16,10 @@ class JXLUnitTest(unittest.TestCase):
     def test_browser_title(self):
         """Opening the initial page should display the correct browser title."""
         self.browser.get('http://localhost:8000')
+        time.sleep(2)
 
-        assert 'Django' in self.browser.title, f"Browser title was {self.browser.title}"
+        assert 'Home' in self.browser.title, f"Browser title was {self.browser.title}"
+
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
