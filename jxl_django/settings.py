@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',
                  '127.0.0.1',
-                 'jxl-test.22bmyfhrdj.us-east-1.elasticbeanstalk.com']
+                 'jxl-django-env.22bmyfhrdj.us-east-1.elasticbeanstalk.com']
 
 
 # Application definition
