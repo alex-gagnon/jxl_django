@@ -2,8 +2,20 @@
 {% block app_header %}{% endblock %}
 {% block app_content %}
     <main>
-        <div>
-            <h1>Hello</h1>
-        </div>
+        <section>
+            <form action="">
+                {% csrf_token %}
+                <div>
+                    {{ form.project.label }}&nbsp;{{ form.project }}
+                </div>
+                <div>
+                    {{ form.filter_by.label }}&nbsp;{{ form.filter_by }}
+                </div>
+                <div>
+                    {{ form.version.label }}&nbsp;{{ form.version }}
+                </div>
+                <input type="submit" value="{{ submit_btn }}">
+            </form>
+        </section>
     </main>
 {% endblock %}
