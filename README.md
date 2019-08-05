@@ -2,10 +2,12 @@
 Django implementation of JXL to get filtered data from Jira and write values to an excel file.
 
 ## Instructions
-* Make sure postgres is installed, else an error will occur for pg_config when installing psycopg2.
+* Follow these steps to install postgresql (on Ubuntu 18.04)
   * https://help.ubuntu.com/lts/serverguide/postgresql.html
-    * use nautilus to open file directory to enable editing
-  * Make sure .ebextensions has a .config file with the following:
+    * Use nautilus to open file directory to enable editing of **postgresql.conf** and **pg_hba.conf**
+      * If these files are edited while postgresql is running, postgresql will require a restart
+        * ```sudo systemctl restart postgresql```
+  * If deploying to AWS Elastic Beanstalk, make sure .ebextensions has a .config file with the following:
     * ```yaml
     packages:
       yum:
@@ -14,12 +16,20 @@ Django implementation of JXL to get filtered data from Jira and write values to 
           libjpeg-turbo-devel: []```
       * More info: https://realpython.com/deploying-a-django-app-and-postgresql-to-aws-elastic-beanstalk/#configure-eb-initialize-your-app
 * Start postgresql
-  * ```systemctl start postgresql```
-  * ```systemctl enable postgresql```
-* Install requirements.txt
-  * ```pip install .```
-* Install geckodriver for selenium
-  * download
+  * ```sudo systemctl start postgresql```
+  * ```sudo systemctl enable postgresql```
+* Ensure postgresql is running and has access to network
+  * ```sudo service postgresql status``` - should return as active
+  * ```sudo netstat -nl | grep postgresql``` - should return a stream
+    * If nothing is returned make sure listen_addresses in **/etc/postgresql/10/mainpostgresql.conf** are
+    not commented out (this is by default) and address is correct (or use * for all addresses).
+      * Make sure **pg_hba.conf** has a line to set which computers can connect to server
+        * host  all  all  127.0.0.1/24  all
+    * https://stackoverflow.com/questions/38466190/cant-connect-to-postgresql-on-port-5432
+* Install requirements.txt after postgresql has been installed
+  * ```pip install -r requirements.txt```
+* Install geckodriver for selenium to access Firefox
+  * Download
     * ```wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz```
   * Extract
     * ```tar -xvzf geckodriver*```
