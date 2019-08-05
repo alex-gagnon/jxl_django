@@ -18,7 +18,7 @@ class JXLUnitTest(unittest.TestCase):
         self.browser.get('http://localhost:8000')
         time.sleep(2)
 
-        assert 'Hello' in self.browser.title, f"Browser title was {self.browser.title}"
+        assert 'Home' in self.browser.title, f"Browser title was {self.browser.title}"
 
 
 if __name__ == '__main__':
