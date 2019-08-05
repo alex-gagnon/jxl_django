@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two&display=swap');
+
+body {
+    background-color: floralwhite;
+    font-family: 'Lobster Two', cursive, sans-serif;
+    letter-spacing: 1px;
+    font-size: 24px;
+}
+
+.container {
+    padding: 10px;
+}
+
+.flex-container-center {
+    display: flex;
+    justify-content: center;
+
+}
+
+.page-text {
+    text-align: center;
+    color: #edbb99;
+}
+
+/* Cards */
+.card {
+    background: linear-gradient(115deg, #afeeee, #ffb0aa 75%);
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.5) -2px 5px 12px;
+    padding: 10px;
+    min-width: 55vw;
+}
+
+.card-header {
+    color: white;
+    margin: -10px 25px 25px;
+}
+
+.card-form {
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+}
+/* End Cards */
+
+/* Forms */
+.form-section {
+    display: flex;
+    justify-content: center;
+}
+
+.form-label {
+    margin-bottom: 5px;
+}
+
+.dropbox select {
+    min-width: 245px;
+    border-radius: 5px;
+    padding: auto 20px;
+    font-size: 1rem;
+}
+
+/* Form submit button */
+input[type="submit"] {
+    background: #add8e6;
+    border: 2px outset turquoise;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 15px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Lobster Two', cursive;
+    text-shadow: rgba(0, 0, 0, 0.66) -1px 1px 0;
+}
+
+input[type="submit"]:hover, input[type="submit"]:focus {
+    background: #85c1e9;
+}
+
+input[type="submit"]:active {
+    border: 2px inset turquoise;
+    background: #add8e6;
+}
+/* End form submit button */
+/* End Forms */
+
+.shadow-inset {
+    -webkit-background-clip: text;
+    text-shadow: rgba(0, 0, 0, .66) -1px -1px 0;
+}

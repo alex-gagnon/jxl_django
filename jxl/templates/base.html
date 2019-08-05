@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>JXL - {{ title }}</title>
+    {% load static %}
+    <script src="{% static 'jxl/dynaScript.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'jxl/style.css' %}">
 </head>
 <body>
 {% block app_header %}{% endblock %}
 {% block app_content %}{% endblock %}
-<footer>
+<footer class="page-text">
     <div>
         <p>
             <span>Created by Alex Gagnon &copy; 2019</span>

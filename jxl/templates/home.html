@@ -1,21 +1,52 @@
-{% extends 'base.html' %}
-{% block app_header %}{% endblock %}
-{% block app_content %}
-    <main>
-        <section>
+{% extends 'cards.html' %}
+{% block app_header %}
+    <header class="page-text">
+        <div>
+            <h1>Jira to Excel</h1>
+            <h2>Exports project issues filtered by version to a downloadable Excel file</h2>
+        </div>
+    </header>
+{% endblock %}
+{% block card_content %}
+    <div>
+        <div class="card-header">
+            <h3>
+                <span class="shadow-inset">{{ title }}</span>
+            </h3>
+        </div>
+        <div class="card-form">
             <form action="">
                 {% csrf_token %}
-                <div>
-                    {{ form.project.label }}&nbsp;{{ form.project }}
-                </div>
-                <div>
-                    {{ form.filter_by.label }}&nbsp;{{ form.filter_by }}
-                </div>
-                <div>
-                    {{ form.version.label }}&nbsp;{{ form.version }}
-                </div>
-                <input type="submit" value="{{ submit_btn }}">
+                <section class="form-section">
+                    <div>
+                        <h4 class="form-label shadow-inset">{{ form.project.label }}&nbsp;</h4>
+                        <div class="dropbox">
+                            {{ form.project }}
+                        </div>
+                    </div>
+                </section>
+                <section class="form-section">
+                    <div>
+                        <h4 class="form-label shadow-inset">{{ form.filter_by.label }}&nbsp;</h4>
+                        <div class="dropbox">
+                            {{ form.filter_by }}
+                        </div>
+                    </div>
+                </section>
+                <section class="form-section">
+                    <div>
+                        <h4 class="form-label shadow-inset">{{ form.version.label }}&nbsp;</h4>
+                        <div class="dropbox">
+                            {{ form.version }}
+                        </div>
+                    </div>
+                </section>
+                <section class="form-section">
+                    <div>
+                        <input type="submit" value="{{ submit_btn }}">
+                    </div>
+                </section>
             </form>
-        </section>
-    </main>
+        </div>
+    </div>
 {% endblock %}
