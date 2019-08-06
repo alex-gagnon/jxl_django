@@ -1,4 +1,5 @@
 {% extends 'cards.html' %}
+{% block app_title %}{{ form.title }}{% endblock %}
 {% block app_header %}
     <header class="page-text">
         <div>
@@ -11,7 +12,7 @@
     <div>
         <div class="card-header">
             <h3>
-                <span class="shadow-inset">{{ title }}</span>
+                <span class="shadow-inset">{{ form.title }}</span>
             </h3>
         </div>
         <div class="card-form">
@@ -43,7 +44,7 @@
                 </section>
                 <section class="form-section">
                     <div>
-                        <input type="submit" value="{{ submit_btn }}">
+                        <input type="submit" value="Download Report">
                     </div>
                 </section>
             </form>

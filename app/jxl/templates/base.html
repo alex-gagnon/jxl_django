@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JXL - {{ title }}</title>
+    <title>JXL - {% block app_title %}{% endblock %}</title>
     {% load static %}
-    <script src="{% static 'jxl/dynaScript.js' %}"></script>
+    <script src="{% static '' %}"></script>
     <link rel="stylesheet" href="{% static 'jxl/style.css' %}">
 </head>
 <body>
