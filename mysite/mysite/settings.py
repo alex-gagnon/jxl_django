@@ -92,7 +92,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'jxl',
+            'NAME': 'jxl_db_test',
             'USER': os.environ.get('POSTGRESQL_USER'),
             'PASSWORD': os.environ.get('POSTGRESQL_PASSWORD'),
             'HOST': 'localhost',
