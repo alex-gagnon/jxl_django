@@ -1,17 +1,13 @@
-from django.shortcuts import render
+from django.utils import timezone
 from django.views.generic import FormView
 
 from .forms import JXLForm
 
 
 class HomeView(FormView):
-    template_name = 'jxl/home.html'
     form_class = JXLForm
+    template_name = 'jxl/home.html'
 
-    def form_valid(self, form):
-        return super().form_valid(form)
-
-
-def home_page(request):
-    form = {'form': JXLForm, 'title': 'Home', 'submit_btn': 'Download Report'}
-    return render(request, 'jxl/home.html', form)
+    def get_queryset(self):
+        """Return the last five published questions, not including those set to be published in the future."""
+        return JXLForm.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
