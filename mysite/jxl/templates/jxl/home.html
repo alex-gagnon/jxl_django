@@ -1,0 +1,53 @@
+{% extends 'cards.html' %}
+{% block app_title %}{{ form.title }}{% endblock %}
+{% block app_header %}
+    <header class="page-text">
+        <div>
+            <h1>Jira to Excel</h1>
+            <h2>Exports project issues filtered by version to a downloadable Excel file</h2>
+        </div>
+    </header>
+{% endblock %}
+{% block card_content %}
+    <div>
+        <div class="card-header">
+            <h3>
+                <span class="shadow-inset">{{ form.title }}</span>
+            </h3>
+        </div>
+        <div class="card-form">
+            <form action="">
+                {% csrf_token %}
+                <section class="form-section">
+                    <div>
+                        <h4 class="form-label shadow-inset">{{ form.project.label }}&nbsp;</h4>
+                        <div class="dropbox">
+                            {{ form.project }}
+                        </div>
+                    </div>
+                </section>
+                <section class="form-section">
+                    <div>
+                        <h4 class="form-label shadow-inset">{{ form.filter_by.label }}&nbsp;</h4>
+                        <div class="dropbox">
+                            {{ form.filter_by }}
+                        </div>
+                    </div>
+                </section>
+                <section class="form-section">
+                    <div>
+                        <h4 class="form-label shadow-inset">{{ form.version.label }}&nbsp;</h4>
+                        <div class="dropbox">
+                            {{ form.version }}
+                        </div>
+                    </div>
+                </section>
+                <section class="form-section">
+                    <div>
+                        <input type="submit" value="Download Report">
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+{% endblock %}
