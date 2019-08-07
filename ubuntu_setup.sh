@@ -29,6 +29,11 @@ if [ "$(sudo netstat -nl | grep postgresql)" ];
 then
   echo "Postgresql running on port 5432. You're good to go!";
 else
+  echo "$CHAINS $CHAINS"
   echo "Postgresql is not running"
-  echo "Please check /etc/postgresql/10/main postgresql.conf and pg_hba.conf for proper settings";
+  echo "Please check /etc/postgresql/10/main postgresql.conf and pg_hba.conf for proper settings"
+  echo "postgresql.conf - uncomment listen_addresses and set equal to *; make sure port is correct"
+  echo "pg_hba.conf - add: local  all  all  192.168.1.0/24  md5"
+  echo "sudo systemctl restart postgresql"
+  echo "$CHAINS $CHAINS";
 fi
