@@ -4,7 +4,7 @@
 CHAINS='------------'
 
 # Change to current user's home directory
-cd ~/
+cd ~/ || exit
 echo "$CHAINS Changed to home directory $CHAINS"
 
 # Run update with advanced packaging tool (apt)
@@ -37,3 +37,4 @@ else
   echo "sudo systemctl restart postgresql"
   echo "$CHAINS $CHAINS";
 fi
+
