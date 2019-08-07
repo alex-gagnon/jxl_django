@@ -14,7 +14,7 @@ class JXLUnitTest(unittest.TestCase):
         self.browser.quit()
 
     def test_jxl_page(self):
-        """Opening the initial page should display the correct browser title,
+        """Opening the initial page should display the correct browser title and
         labels should be present"""
         self.browser.get('http://localhost:8000')
 
@@ -22,10 +22,12 @@ class JXLUnitTest(unittest.TestCase):
         self.assertIn('JXL - Home', self.browser.title)
 
         # Are labels present?
+        project_box = self.browser.find_element_by_id('id_project')
+        filter_by_box = self.browser.find_element_by_id('id_filter_by')
         version_box = self.browser.find_element_by_id('id_version')
 
-        self.assertTrue(self.browser.find_element_by_id('id_project'))
-        self.assertTrue(self.browser.find_element_by_id('id_filter_by'))
+        self.assertTrue(project_box)
+        self.assertTrue(filter_by_box)
         self.assertTrue(version_box)
 
         # Is Version placeholder text correct?

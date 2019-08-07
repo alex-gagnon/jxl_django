@@ -7,6 +7,11 @@ Django implementation of JXL to get filtered data from Jira and write values to 
 sure it's port is listening
 * Run ***installation/ubuntu_geckodriver_install.sh*** bash script to download Firefox geckodriver and
 add it's executable to PATH
+* ```python myscript/manage.py makemigrations jxl```
+* ```python myscript/manage.py migrate jxl```
+* ```python myscript/manage.py test jxl```
+* ```python myscript/manage.py runserver```
+* ```python tests/functional_tests.py```
 
 ### Manual
 * Follow these steps to install postgresql (on Ubuntu 18.04)
