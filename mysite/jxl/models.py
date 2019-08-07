@@ -7,8 +7,11 @@ from django.utils import timezone
 
 
 class JXLModel(models.Model):
-    project_text = models.CharField(max_length=200)
-    filter_by_text = models.CharField(max_length=50)
+    project_code = models.CharField(max_length=50, default='default')
+    project_text = models.CharField(max_length=100, default='default')
+
+    filter_by_text = models.CharField(max_length=100, default='default')
+
     pub_date = models.DateTimeField('date published')
 
     def __str__(self):
