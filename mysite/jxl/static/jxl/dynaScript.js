@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (project.value !== 'CUST') {
                 while (filter_by.firstChild) filter_by.removeChild(filter_by.firstChild);
-                filter_by.options[filter_by.options.length] = new Option('Fix version', 'fix_version')
+                filter_by.options[filter_by.options.length] = new Option('Fix version', 'Fix Version')
             } else {
                 while (filter_by.firstChild) filter_by.removeChild(filter_by.firstChild);
-                filter_by.options[filter_by.options.length] = new Option('Latest version', 'latest_version')
+                filter_by.options[filter_by.options.length] = new Option('Latest version', 'Latest Version')
             }
             resolve();
         })
