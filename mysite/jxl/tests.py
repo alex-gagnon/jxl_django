@@ -8,8 +8,8 @@ from .forms import JXLForm
 
 class HomeViewTest(TestCase):
 
-    def test_index_redirects_and_renders_template(self):
-        """Index page should redirect to JXL app"""
+    def test_index_redirects_and_renders_home_template(self):
+        """Index page should redirect to JXL app and render home.html"""
         # follow=True is required to follow the redirect chain in order to check template used
         response = self.client.get('/', follow=True)
         self.assertRedirects(response=response, expected_url='/jxl/',
@@ -21,6 +21,10 @@ class HomeViewTest(TestCase):
 class JXLFormTest(TestCase):
     def test_form_renders_fields(self):
         form = JXLForm()
+
+        # Are form ids present
         [self.assertIn(f'id="{ids}"', form.as_p()) for ids in 'id_project id_filter_by id_version'.split()]
+
+        # Does version have the correct placeholder?
         self.assertIn('placeholder="Enter version number (e.g. 10.2)', form.as_p())
 
