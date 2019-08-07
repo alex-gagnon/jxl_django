@@ -25,10 +25,10 @@ sudo systemctl enable postgresql
 sudo systemctl is-active --quiet service && echo Service is running
 
 # Check if postgresql is running on port
-if [ -z "$(sudo netstat -tupln | grep 5432)" ];
+if [ "$(sudo netstat -nl | grep postgresql)" ];
 then
+  echo "Postgresql running on port 5432. You're good to go!";
+else
   echo "Postgresql is not running"
   echo "Please check /etc/postgresql/10/main postgresql.conf and pg_hba.conf for proper settings";
-else
-  echo "Postgresql running on port 5432. You're good to go!";
 fi
