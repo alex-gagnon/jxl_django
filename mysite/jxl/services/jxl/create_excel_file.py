@@ -1,15 +1,24 @@
 import os
 from datetime import datetime
-from mysite.jxl import FILE_PATH
 
 import xlwt as excel
+
+PROJECT_PATH = os.path.dirname(__file__)
+FILE_PATH = os.path.dirname(os.path.abspath(__file__))
+
+try:
+    os.stat(os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'assets'))
+except FileNotFoundError:
+    os.mkdir(os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'assets'))
+finally:
+    FILE_PATH = (os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'assets'))
 
 
 class CreateExcelFile:
     def __init__(self, *args, **kwargs):
         self.args = args
         self.book = excel.Workbook()
-        self.filename = kwargs.get('filename')
+        self.filename = kwargs.get('filename').replace(' ', '_')
         self.sheetname = kwargs.get('sheetname')
 
         self.sheet = self.book.add_sheet(self.sheetname or 'Sheet 1')

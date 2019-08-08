@@ -1,5 +1,6 @@
-from mysite.jxl import FILE_PATH
-from .create_excel_file import CreateExcelFile
+import os
+
+from .create_excel_file import CreateExcelFile, FILE_PATH
 from .jira_project_issues import JiraProjectIssues
 
 
@@ -66,4 +67,7 @@ class JXL:
     @staticmethod
     def download(latest_file):
         """Download the latest file"""
-        return {"Successful": 200, "directory": FILE_PATH, "filename": latest_file}
+        return {"Successful": 200,
+                "directory": FILE_PATH,
+                "filename": latest_file,
+                "filepath": os.path.join(FILE_PATH, latest_file)}

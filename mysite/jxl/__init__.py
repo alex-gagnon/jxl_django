@@ -1,11 +1,9 @@
 import os
 
-PROJECT_PATH = os.path.dirname(__file__)
-FILE_PATH = os.path.dirname(os.path.abspath(__file__))
+from dotenv import load_dotenv
 
-try:
-    os.stat(os.path.join(FILE_PATH, 'assets'))
-except FileNotFoundError:
-    os.mkdir(os.path.join(FILE_PATH, 'assets'))
-finally:
-    FILE_PATH = os.path.join(FILE_PATH, 'assets')
+load_dotenv()
+
+auth = {'url': os.environ.get('JIRA_URL'),
+        'user': os.environ.get('JIRA_USER'),
+        'pwd': os.environ.get('JIRA_PASSWORD')}
