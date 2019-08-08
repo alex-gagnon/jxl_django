@@ -55,7 +55,7 @@ body {
 }
 
 .dropbox select {
-    min-width: 245px;
+    min-width: 275px;
     border-radius: 5px;
     padding: auto 20px;
     font-size: 1rem;
