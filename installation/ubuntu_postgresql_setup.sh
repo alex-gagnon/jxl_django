@@ -2,9 +2,10 @@
 
 # Assists in making echo's visible
 CHAINS='------------'
+HOME_DIR=~/
 
 # Change to current user's home directory
-cd ~/ || exit
+cd $HOME_DIR || exit
 echo "$CHAINS Changed to home directory $CHAINS"
 
 # Run update with advanced packaging tool (apt)
@@ -12,7 +13,7 @@ sudo apt update
 echo "$CHAINS Ran apt updates $CHAINS"
 
 # Install required packages for postgresql
-sudo apt install libpq-dev python-dev python3-dev python3.7-dev
+sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl
 echo "$CHAINS Installed packages required for postgresql $CHAINS"
 
 # Install postgresql
