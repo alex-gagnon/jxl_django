@@ -49,3 +49,7 @@ add it's executable to PATH
     * ```chmod +x geckodriver```
   * Add driver to PATH
     * ```sudo mv geckodriver /usr/local/bin```
+    
+## Resources
+* Serving static files on S3
+  * https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
