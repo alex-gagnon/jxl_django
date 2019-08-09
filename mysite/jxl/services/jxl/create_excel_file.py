@@ -7,11 +7,11 @@ PROJECT_PATH = os.path.dirname(__file__)
 FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 try:
-    os.stat(os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'static', 'assets'))
+    os.stat(os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'media', 'jxl'))
 except FileNotFoundError:
-    os.mkdir(os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'static', 'assets'))
+    os.mkdir(os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'media', 'jxl'))
 finally:
-    FILE_PATH = (os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'static', 'assets'))
+    FILE_PATH = (os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'media', 'jxl'))
 
 
 class CreateExcelFile:
