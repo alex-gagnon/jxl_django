@@ -1,6 +1,10 @@
+import logging
 import os
 
-from django.http import HttpResponse, FileResponse
+import boto3
+from botocore.exceptions import ClientError
+from django.conf import settings
+from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 
@@ -17,6 +21,10 @@ class HomeView(FormView):
 
     def form_valid(self, form):
         file = self.send_file(form.data)
+        file_location = file.get('filepath')
+        r = self.upload_file(file_name=file_location,
+                             object_name=os.path.join(settings.MEDIAFILES_LOCATION, 'jxl', file.get('filename')))
+
         response = HttpResponse(open(file.get('filepath'), 'rb').read())
         response['Content-Type'] = 'mimetype/submimetype'
         response['Content-Disposition'] = f"attachment; filename={file.get('filename')}"
@@ -26,7 +34,29 @@ class HomeView(FormView):
         return HttpResponse(f"<p>{form.errors}</h1>")
 
     @staticmethod
-    def send_file( data):
+    def upload_file(file_name, object_name=None):
+        """Upload a file to an S3 bucket"""
+
+        # If S3 object_name was not specified, use file_name
+        if object_name is None:
+            object_name = file_name
+
+        # Upload the file
+        s3_client = boto3.client('s3')
+        s3_bucket = settings.AWS_STORAGE_BUCKET_NAME
+        try:
+            response = s3_client.upload_file(file_name, s3_bucket, object_name)
+        except ClientError as e:
+            logging.error(e)
+            return False
+        return True
+
+    @staticmethod
+    def download_file():
+        pass
+
+    @staticmethod
+    def send_file(data):
         project = {'project': data.get('project_text'),
                    'filter_by': data.get('filter_by_text'),
                    'version': data.get('version')}
