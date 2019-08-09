@@ -1,4 +1,4 @@
-{% extends 'cards.html' %}
+{% extends 'jxl/cards.html' %}
 {% block app_title %}{{ form.title }}{% endblock %}
 {% block app_header %}
     <header class="page-text">
@@ -16,21 +16,21 @@
             </h3>
         </div>
         <div class="card-form">
-            <form action="">
+            <form action="." method="post">
                 {% csrf_token %}
                 <section class="form-section">
                     <div>
-                        <h4 class="form-label shadow-inset">{{ form.project.label }}&nbsp;</h4>
+                        <h4 class="form-label shadow-inset">{{ form.project_text.label }}&nbsp;</h4>
                         <div class="dropbox">
-                            {{ form.project }}
+                            {{ form.project_text }}
                         </div>
                     </div>
                 </section>
                 <section class="form-section">
                     <div>
-                        <h4 class="form-label shadow-inset">{{ form.filter_by.label }}&nbsp;</h4>
+                        <h4 class="form-label shadow-inset">{{ form.filter_by_text.label }}&nbsp;</h4>
                         <div class="dropbox">
-                            {{ form.filter_by }}
+                            {{ form.filter_by_text }}
                         </div>
                     </div>
                 </section>

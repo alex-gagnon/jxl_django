@@ -27,7 +27,7 @@ SECRET_KEY = 'p()v1t%u!q(kz$-14%+*^0e8szt=m2c=x=_$e+s(z3-0!_55m5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0',  # Local environments
                  'jxl-django-env.22bmyfhrdj.us-east-1.elasticbeanstalk.com']
 
 
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,5 +137,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'www', 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIR = ()
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+)
