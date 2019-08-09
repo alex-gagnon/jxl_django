@@ -2,16 +2,17 @@ import os
 from datetime import datetime
 
 import xlwt as excel
+from django.conf import settings
 
 PROJECT_PATH = os.path.dirname(__file__)
-FILE_PATH = os.path.dirname(os.path.abspath(__file__))
-
-try:
-    os.stat(os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'media', 'jxl'))
-except FileNotFoundError:
-    os.mkdir(os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'media', 'jxl'))
-finally:
-    FILE_PATH = (os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'media', 'jxl'))
+FILE_PATH = settings.MEDIAFILES_LOCATION
+#
+# try:
+#     os.stat(os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'media', 'jxl'))
+# except FileNotFoundError:
+#     os.mkdir(os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'media', 'jxl'))
+# finally:
+#     FILE_PATH = (os.path.join(os.path.dirname(os.path.dirname(FILE_PATH)), 'media', 'jxl'))
 
 
 class CreateExcelFile:
